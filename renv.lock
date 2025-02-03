@@ -1,0 +1,46 @@
+{
+  "R": {
+    "Version": "4.4.2",
+    "Repositories": [
+      {
+        "Name": "CRAN",
+        "URL": "https://packagemanager.posit.co/cran/latest"
+      }
+    ]
+  },
+  "Packages": {
+    "renv": {
+      "Package": "renv",
+      "Version": "1.0.11",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "utils"
+      ],
+      "Hash": "47623f66b4e80b3b0587bc5d7b309888"
+    },
+    "tinytex": {
+      "Package": "tinytex",
+      "Version": "0.54",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "xfun"
+      ],
+      "Hash": "3ec7e3ddcacc2d34a9046941222bf94d"
+    },
+    "xfun": {
+      "Package": "xfun",
+      "Version": "0.50",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "grDevices",
+        "stats",
+        "tools"
+      ],
+      "Hash": "44ab88837d3f8dfc66a837299b887fa6"
+    }
+  }
+}

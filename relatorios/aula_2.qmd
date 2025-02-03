@@ -1,0 +1,87 @@
+---
+title: "Meu primeiro documento em Quarto"
+format: html
+editor: visual
+---
+
+## Exercicio 2
+
+Documento em quarto
+
+## Criação de gráfico
+
+Carregando as librarys, sem echo false:
+
+```{r}
+
+#| label: fig-grafico-dos-pinguins
+#| fig-cap: "Grafico da relação ..."
+#| fig-align: "center"
+#| out-width: "50%"
+
+# Carregar os pacotes
+library(palmerpenguins)
+library (ggplot2)
+```
+
+Usando echo false apenas para exibir o resultado do código:
+
+```{r}
+#| echo: false
+penguins |>
+  na.omit() |>  # Remove linhas com valores ausentes
+  ggplot() +
+  aes(x = flipper_length_mm, y = body_mass_g) +
+  geom_point(aes(color = species, shape = species)) +
+  scale_color_manual(values = c("darkorange", "darkorchid", "cyan4")) +
+  theme_minimal()
+```
+
+Criação de tabela:
+
+```{r}
+library(dplyr)
+#| warnings:false
+pinguins_frequencia <- penguins |> 
+  count(species, island, sort = TRUE)
+
+# tabela sem formatação
+pinguins_frequencia
+
+#tabela com formatação padrão
+pinguins_frequencia |> 
+  knitr::kable()
+
+#tabela com formatação e nomes de colunas
+pinguins_frequencia |> 
+  knitr::kable(col.names = c("Espécie", "Ilha", "Quantidade"))
+
+```
+
+``` r
+library(tidyverse)
+
+# uma forma de encontrar o caminho
+arquivo_para_ler <- "../dados/mtcars.csv"
+
+# pasta atual
+"./"
+
+glimpse(arquivo_para_ler)
+
+```
+
+
+## inline code
+
+```{r}
+#| echo: false # não aparece o código
+especies_penguins <- unique(penguins$species)
+frase_especies <- knitr::combine_words(especies)
+
+# executar caso não tenha o abjData instalado
+library(abjData)
+
+pnud_mais_recentec<- pnud_min()
+
+```
